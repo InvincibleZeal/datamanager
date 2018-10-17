@@ -1,0 +1,105 @@
+header {
+	margin-top: 50px;
+	background: #fff;
+	color: #666;
+}
+
+.mainspace {
+	background: #222;
+}
+
+/* --------INDEX PAGE-------- */
+#showcase p {
+	margin: 30px auto;
+	padding: 0 40px;
+	font-family: Lato;
+	font-size: 15px;
+	line-height: 1.6em;
+}
+
+/* --------CONTAINER--------- */
+.expand-container {
+	width : 90%;
+	margin: 0 auto;
+}
+
+.main.expand-container {
+	margin: 60px auto 0 auto;
+	background: #fff;
+	padding-bottom: 20px;
+}
+
+.main.expand-container header {
+	padding-top: 10px;
+}
+
+.main.container {
+	padding: 15px 0;
+	background: #fff;
+	border-top: #bbb solid 2px;
+}
+
+.main.container .result {
+	height: 100vh;
+}
+
+.screened {
+	min-height: 65vh;
+}
+
+/* ---------FORMS-------------- */
+
+.main.container .form-group {
+	margin : 0 auto;
+}
+
+.main.container .space label {
+	margin: 15px;
+}
+
+.main.container #addMember .form-group, .main.container #addBook .form-group{
+	margin: 5px auto;
+}
+
+.main.container #addMember label, .main.container #addBook label {
+	margin: 10px 0;
+}
+
+.main.container #addMember button, .main.container #addBook button {
+	margin-top: 10px;
+	width: 100%;
+}
+
+/* ----------LISTS-------------- */
+
+#list .heading {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.list-group-item {
+	padding: 10px 0;
+	margin: 0 10px;
+}
+
+.list-group-item .badge {
+	font-size: 1em;
+}
+
+#result {
+	font-size: 14px;
+}
+
+#popdown {
+	background: #ddd;
+}
+
+.confirm {
+	margin: 0 10px;
+}
+
+/* -------------FOOTER------------ */
+
+footer {
+	color: #ccc;
+}

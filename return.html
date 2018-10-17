@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+    	<meta charset="utf-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	    <link rel="icon" href="favicon.ico">
+	    <title>LIBRARY | Booksplore</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+	    <link rel="stylesheet" href="css/style.css">
+	</head>
+	<body class="bg-dark">
+
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark container">
+			<a class="navbar-brand" href="index.html">Booksplore</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="issue.html">Issue</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="return.html">Return<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="members.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="members.html">All Members</a>
+					  		<a class="dropdown-item" href="addmember.html">Add Member</a>
+					  		<a class="dropdown-item" href="removemember.html">Remove Member</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="stock.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stock</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="stock.html">Current Stock</a>
+					  		<a class="dropdown-item" href="addbook.html">Add Book</a>
+					  		<a class="dropdown-item" href="removebook.html">Remove Book</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<main role="main">
+			<div class="main container">
+				<header>
+					<h2 class="text-center">Return Books</h2>
+				</header>
+				<hr>
+				<form class="form-inline space">
+					<div class="form-group">
+						 <label for="bookID">Book ID</label>
+			 			<input type="text" class="form-control" id="bookID">
+					</div>
+					<div class="form-group">
+						<label for="memberID">Member ID</label>
+						<input type="text" class="form-control" id="memberID">
+					</div>
+					<div class="form-group">
+						 <label for="firstName">Name</label>
+			 			<input type="text" class="form-control" id="firstName">
+					</div>
+				</form>
+				<hr>
+				<div id="list">
+					<div class="heading row">
+						<div class="col-md-2 text-center">
+							<strong>Member ID</strong>
+						</div>
+						<div class="col-md-2 text-center">
+							<strong>First Name</strong>
+						</div>
+						<div class="col-md-2 text-center">
+							<strong>Last Name</strong>
+						</div>
+						<div class="col-md-2 text-center">
+							<strong>Book ID</strong>
+						</div>
+						<div class="col-md-2 text-center">
+							<strong>Subscription Ends</strong>
+						</div>
+						<!-- <div class="col-md-2 text-center">
+							<strong>Issued On</strong>
+						</div> -->
+						<div class="col-md-2 text-center">
+							<strong>Action</strong>
+						</div>
+					</div>
+					<ul class="list-group screened" id="result">
+  						<!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+							<div class="col-md-2 text-center">
+								Member ID
+							</div>
+							<div class="col-md-2 text-center">
+								First Name
+							</div>
+							<div class="col-md-2 text-center">
+								Last Name
+							</div>
+							<div class="col-md-2 text-center">
+								Book ID
+							</div>
+							<div class="col-md-2 text-center">
+								<span class="badge badge-primary badge-pill">Status</span>
+							</div>
+							<div class="col-md-2 text-center issue">
+								<button class="btn btn-primary" id="remove">Issue</button>							
+							</div>
+    					</li> -->
+					</ul>
+				</div>
+			</div> <!-- /container -->
+		</main>
+
+		<footer class="container">
+		  	<p>&copy; Booksplore 2018</p>
+		</footer>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+		<script>
+			let bookID = document.getElementById('bookID');
+			let memberID = document.getElementById('memberID');
+			let firstName = document.getElementById('firstName');
+			let result = document.getElementById('result');
+			let returns;
+
+			bookID.addEventListener('input', searchIssued);
+			memberID.addEventListener('input', searchIssued);
+			firstName.addEventListener('input', searchIssued);
+
+			window.onload = function() {
+				resetInputs();
+				searchIssued();
+			};
+
+			function searchIssued() {
+				let request = 'return.php?BookID='+bookID.value+'&MemberID='+memberID.value+'&FirstName='+firstName.value;
+				fetch(request)
+				.then(res => res.text())
+				.then(data => {
+					let search = JSON.parse(data);
+					result.innerHTML = '';
+					for(let i=0;i<search.length;i++) {
+						let color = 'primary';
+						if(new Date > new Date(search[i]['SubscriptionEnds']))
+							color = 'danger';
+						result.innerHTML += '<li class="list-group-item d-flex justify-content-between align-items-center"><div class="col-md-2 text-center">'+search[i]['MemberID']+'</div><div class="col-md-2 ext-center">'+search[i]['FirstName']+'</div><div class="col-md-2 text-center">'+search[i]['LastName']+'</div><div class="col-md-2 text-center">'+search[i]['Issued']+'</div><div class="col-md-2 text-center"><span class="badge badge-'+color+' badge-pill">'+search[i]['SubscriptionEnds']+'</span></div><div class="col-md-2 text-center returns"><button class="btn btn-primary">Return</button></div></li>';
+					}
+				}).catch(error => console.log(error));
+
+				setTimeout(refreshReturn, 100);
+			}
+
+			function refreshReturn() {
+				returns = document.getElementsByClassName('returns');
+				for(let i=0;i<returns.length;i++)
+					returns[i].addEventListener('click', returnItem);
+			}
+
+			function returnItem(e) {
+				let nodes = e.target.parentNode.parentNode;
+				let id = nodes.lastChild.previousSibling.previousSibling.textContent;
+				let memberID = nodes.firstChild.textContent;
+				fetch('return.php?id='+id+'&MemberID='+memberID)
+				.then(res => res.text())
+				.then(data => {
+					if(data=='success') {
+						result.innerHTML = '<div class="alert alert-success text-center">Book returned<strong> Successfully</strong>!</div>';
+					} else
+						result.innerHTML = '<div class="alert alert-danger text-center"><strong>Unable</strong> to return the book right now!</div>';
+				}).catch(error => console.log(error));
+				resetInputs();
+			}
+
+			function resetInputs() {
+				bookID.value = '';
+				memberID.value = '';
+				firstName.value = '';
+			}
+		</script>
+	</body>
+</html>
+

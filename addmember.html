@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+    	<meta charset="utf-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	    <link rel="icon" href="favicon.ico">
+	    <title>LIBRARY | Booksplore</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+	    <link rel="stylesheet" href="css/style.css">
+	</head>
+	<body class="bg-dark">
+
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark container">
+			<a class="navbar-brand" href="index.html">Booksplore</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="issue.html">Issue</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="return.html">Return</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="members.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="members.html">All Members</a>
+					  		<a class="dropdown-item" href="addmember.html">Add Member<span class="sr-only">(current)</span></a>
+					  		<a class="dropdown-item" href="removemember.html">Remove Member</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="stock.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stock</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown02">
+							<a class="dropdown-item" href="stock.html">Current Stock</a>
+					  		<a class="dropdown-item" href="addbook.html">Add Book</a>
+					  		<a class="dropdown-item" href="removebook.html">Remove Book</a>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+		</nav>
+		
+		<main role="main">
+			<div class="main container">
+				<header>
+					<h2 class="text-center">Add Member</h2>
+				</header>
+				<hr>
+				<div id="result"></div>
+				<form id="addMember">
+					<div class="form-row">
+				    	<div class="form-group col-md-4 col-md-offset-2">
+				    		<label for="firstNmae">First Name</label>
+				    		<input type="text" class="form-control" id="firstName" required>
+				    	</div>
+				    	<div class="form-group col-md-4">
+				      		<label for="lastName">Last Name</label>
+				      		<input type="text" class="form-control" id="lastName" required>
+				    	</div>
+				 	</div>
+			  		<div class="form-row">
+			  			<div class="form-group col-md-10 col-md-offset-1">
+			    			<label for="address">Address</label>
+			    			<input type="text" class="form-control" id="address" required>
+			    		</div>
+			  		</div>
+				  	<div class="form-row">
+					    <div class="form-group col-md-10 col-md-offset-2">
+					      	<label for="city">City</label>
+					      	<input type="text" class="form-control" id="city" required>
+					    </div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-4 col-md-offset-1">
+					      	<label for="state">State</label>
+					      	<select id="state" class="form-control" required>
+					        	<option selected></option>
+					        	<option>Andhra Pradesh</option>
+					        	<option>Arunachal Pradesh</option>
+					        	<option>Assam</option>
+					        	<option>Bihar</option>
+					        	<option>Chattisgarh</option>
+					        	<option>Goa</option>
+					        	<option>Gujarat</option>
+					        	<option>Haryana</option>
+					        	<option>Himachal Pradesh</option>
+					        	<option>Jammu & Kashmir</option>
+					        	<option>Jharkhand</option>
+					        	<option>Karnataka</option>
+					        	<option>Kerala</option>
+					        	<option>Madhya Pradesh</option>
+					        	<option>Maharashtra</option>
+					        	<option>Manipur</option>
+					        	<option>Meghalaya</option>
+					        	<option>Mizoram</option>
+					        	<option>Nagaland</option>
+					        	<option>Orissa</option>
+					        	<option>Punjab</option>
+					        	<option>Rajasthan</option>
+					        	<option>Sikkim</option>
+					        	<option>Tamil Nadu</option>
+					        	<option>Telangana</option>
+					        	<option>Tripura</option>
+					        	<option>Uttar Pradesh</option>
+					        	<option>Uttarakhand</option>
+					        	<option>West Bengal</option>
+					      	</select>
+					    </div>
+					    <div class="form-group col-md-4">
+					      	<label for="zip">Zip</label>
+					      	<input type="number" class="form-control" id="zip" required>
+					    </div>
+					</div>
+				  	<div class="form-row">
+					  	<div class="form-group col-md-4 col-md-offset-1">
+					      	<label for="gender">Gender</label>
+					      	<select id="gender" class="form-control" required>
+					        	<option selected></option>
+					        	<option>Male</option>
+					        	<option>Female</option>
+					        	<option>Other</option>
+					      	</select>
+					    </div>
+					 	<div class="form-group col-md-4">
+					      	<label for="subscription">Subscription Period (Months)</label>
+					      	<select id="subscription" class="form-control" required>
+					        	<option selected></option>
+					        	<option>1</option>
+					        	<option>2</option>
+					        	<option>6</option>
+					        	<option>12</option>
+					        	<option>24</option>
+					      	</select>
+					    </div>
+				  	</div>
+				  	<div class="form-row">
+				  		<div class="form-group col-md-10">
+				  			<button type="submit" class="btn btn-primary">Add</button>
+				  		</div>
+				  	</div>
+				</form>
+				<hr>
+			</div> <!-- /container -->
+		</main>
+
+		<footer class="container">
+		  	<p>&copy; Booksplore 2018</p>
+		</footer>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+		<script>
+			let addMember = document.getElementById('addMember');
+			let result = document.getElementById('result');
+			addMember.reset();
+			result.style.display = 'none';
+			result.style.height = '50px';
+			addMember.addEventListener('submit', updateMember);
+
+			function updateMember(e) {
+				e.preventDefault();
+				result.style.display = 'block'
+				let request = 'http://localhost/html/datamanager/addmember.php?FirstName='+firstName.value+'&LastName='+lastName.value+'&Address='+address.value+'&City='+city.value+'&State='+state.value+'&Zip='+zip.value+'&Gender='+gender.value+'&Subscription='+subscription.value;
+				fetch(request, {mode: 'no-cors'})
+				.then(res => res.text())
+				.then(data => {
+					result.innerHTML = '<div class="alert alert-success text-center">Member Added <strong>Successfully</strong>!</div>';
+					addMember.reset();
+				}).catch(error => console.log(error));
+			}
+		</script>
+	</body>
+</html>
+
